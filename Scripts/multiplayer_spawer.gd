@@ -1,10 +1,9 @@
 extends MultiplayerSpawner
 
 @export var network_player: PackedScene
+@export var start_positions:Array[Node2D]
 
 var current_player: Node = null
-
-var next_position:int = 0
 
 func _ready() -> void:
 	spawn_function = _spawn_player
@@ -14,8 +13,12 @@ func _ready() -> void:
 func spawn_all_players():
 	print("Spawning Players")
 	if multiplayer.is_server():
+		var player_numer = 1
 		for player_id in Lobby.players:
-			var data = {"id": player_id, "position": Vector2(150,150)}
+			var start_position: Vector2 = start_positions[player_numer].position
+			player_numer += 1
+			print(start_position)
+			var data = {"id": player_id, "position": start_position}
 			spawn(data)
 
 func _spawn_player(data:Dictionary) -> CharacterBody2D:
