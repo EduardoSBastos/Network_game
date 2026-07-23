@@ -13,11 +13,10 @@ func _ready() -> void:
 func spawn_all_players():
 	print("Spawning Players")
 	if multiplayer.is_server():
-		var player_numer = 1
+		var player_numer = 0
 		for player_id in Lobby.players:
 			var start_position: Vector2 = start_positions[player_numer].position
 			player_numer += 1
-			print(start_position)
 			var data = {"id": player_id, "position": start_position}
 			spawn(data)
 
