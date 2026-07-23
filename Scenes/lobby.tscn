@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://tqykh5rxjluu"]
+
+[ext_resource type="Script" uid="uid://borgni53wtvra" path="res://Scripts/lobby_menu.gd" id="1_nvaej"]
+
+[node name="Lobby" type="Node2D" unique_id=873845614 node_paths=PackedStringArray("name_container", "start_button")]
+script = ExtResource("1_nvaej")
+name_container = NodePath("VBoxContainer/NameContainer")
+start_button = NodePath("StartButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1850262406]
+offset_right = 598.0
+offset_bottom = 359.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1755560154]
+layout_mode = 2
+text = "Players:"
+horizontal_alignment = 1
+
+[node name="NameContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1305718213]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="." unique_id=649030933]
+offset_left = 1.0
+offset_top = 318.0
+offset_right = 158.0
+offset_bottom = 360.0
+text = "Start Game"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

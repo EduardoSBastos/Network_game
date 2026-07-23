@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://2yvq6yiiep7y"]
+
+[ext_resource type="PackedScene" uid="uid://bu2wbh6ptn68r" path="res://Scenes/high_level_UI.tscn" id="1_28flt"]
+
+[node name="MainMenu" type="Node2D" unique_id=335379400]
+
+[node name="HighLevelUI" parent="." unique_id=989753893 instance=ExtResource("1_28flt")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_right = 600.0
+offset_bottom = 359.0
+grow_horizontal = 1
+grow_vertical = 1
