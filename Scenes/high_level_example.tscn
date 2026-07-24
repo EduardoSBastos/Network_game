@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xskmhffi3dcf"]
 
 [ext_resource type="Script" uid="uid://cwynmgmcguevo" path="res://Scripts/multiplayer_spawer.gd" id="2_4likr"]
-[ext_resource type="PackedScene" uid="uid://dc0u6mvh08b12" path="res://Scenes/high_level_network_player.tscn" id="3_4likr"]
+[ext_resource type="PackedScene" uid="uid://dc0u6mvh08b12" path="res://Scenes/Player/player.tscn" id="3_4likr"]
 
 [node name="HighLevelExample" type="Node2D" unique_id=201747853]
 
@@ -17,13 +17,13 @@ start_positions = [NodePath("../StartPositions/StartPoint1"), NodePath("../Start
 [node name="StartPositions" type="Node2D" parent="." unique_id=231287596]
 
 [node name="StartPoint1" type="Node2D" parent="StartPositions" unique_id=2072346562]
-position = Vector2(60, 60)
+position = Vector2(60, 100)
 
 [node name="StartPoint2" type="Node2D" parent="StartPositions" unique_id=1951758551]
-position = Vector2(300, 60)
+position = Vector2(300, 100)
 
 [node name="StartPoint3" type="Node2D" parent="StartPositions" unique_id=1394477225]
-position = Vector2(60, 200)
+position = Vector2(60, 250)
 
 [node name="StartPoint4" type="Node2D" parent="StartPositions" unique_id=218120223]
-position = Vector2(300, 200)
+position = Vector2(300, 250)

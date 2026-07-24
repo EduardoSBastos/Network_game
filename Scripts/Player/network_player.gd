@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const SPEED: float = 500.0
 
-var start_position:Vector2 = Vector2(0,0)
 
 func initialize(id:int, start_position:Vector2):
 	set_multiplayer_authority(id)

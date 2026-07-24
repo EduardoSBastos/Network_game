@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dc0u6mvh08b12"]
+
+[ext_resource type="Script" uid="uid://jonlmibtcwnp" path="res://Scripts/Player/network_player.gd" id="1_jvuf2"]
+[ext_resource type="Script" uid="uid://dkucoa6mwwgv" path="res://Scripts/Player/score_counter.gd" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_u6grq"]
+[ext_resource type="Script" uid="uid://dvqn0wmp6yp43" path="res://Scenes/Player/score_label.gd" id="3_mtuoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i88t"]
+size = Vector2(124, 124)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_u0d7c"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="HighLevelNetworkPlayer" type="CharacterBody2D" unique_id=179867185]
+script = ExtResource("1_jvuf2")
+
+[node name="ScoreCounter" type="Node2D" parent="." unique_id=783920538 node_paths=PackedStringArray("autority_provider")]
+script = ExtResource("2_6t5aa")
+autority_provider = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1129566817]
+shape = SubResource("RectangleShape2D_0i88t")
+disabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=361173749]
+replication_config = SubResource("SceneReplicationConfig_u0d7c")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=979349938]
+
+[node name="ScoreLabel" type="Label" parent="Visuals" unique_id=471139304]
+offset_left = -30.0
+offset_top = -90.0
+offset_right = 31.0
+offset_bottom = -64.0
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("3_mtuoh")
+
+[node name="Icon" type="Sprite2D" parent="Visuals" unique_id=1485132273]
+texture = ExtResource("2_u6grq")
+
+[connection signal="on_score_change" from="ScoreCounter" to="Visuals/ScoreLabel" method="update_label"]
