@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cx8bamsanace2"]
+
+[ext_resource type="Texture2D" uid="uid://3ya25f2snrnw" path="res://Assets/Sprites/bullet.png" id="1_eoc3h"]
+[ext_resource type="Script" uid="uid://dsvfwelbms8hb" path="res://Scripts/Player/bullet.gd" id="1_l8742"]
+
+[node name="Bullet" type="Node2D" unique_id=78278177]
+script = ExtResource("1_l8742")
+bullet_speed = 800.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1732749268]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_eoc3h")

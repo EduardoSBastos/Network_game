@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://jonlmibtcwnp" path="res://Scripts/Player/network_player.gd" id="1_jvuf2"]
 [ext_resource type="Script" uid="uid://dkucoa6mwwgv" path="res://Scripts/Player/score_counter.gd" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://e1b8srsdtu0" path="res://Scripts/Player/gun.gd" id="2_htcer"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_u6grq"]
-[ext_resource type="Script" uid="uid://dvqn0wmp6yp43" path="res://Scenes/Player/score_label.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://dvqn0wmp6yp43" path="res://Scripts/Player/score_label.gd" id="3_mtuoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i88t"]
 size = Vector2(124, 124)
@@ -15,6 +16,10 @@ properties/0/replication_mode = 1
 
 [node name="HighLevelNetworkPlayer" type="CharacterBody2D" unique_id=179867185]
 script = ExtResource("1_jvuf2")
+
+[node name="Gun" type="Node2D" parent="." unique_id=1515005287 node_paths=PackedStringArray("autority_provider")]
+script = ExtResource("2_htcer")
+autority_provider = NodePath("..")
 
 [node name="ScoreCounter" type="Node2D" parent="." unique_id=783920538 node_paths=PackedStringArray("autority_provider")]
 script = ExtResource("2_6t5aa")
