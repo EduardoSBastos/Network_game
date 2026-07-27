@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://e1b8srsdtu0" path="res://Scripts/Player/gun.gd" id="2_htcer"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_u6grq"]
 [ext_resource type="Script" uid="uid://dvqn0wmp6yp43" path="res://Scripts/Player/score_label.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://cxr66fl0nwtj4" path="res://Scripts/Player/icon.gd" id="7_0u5uq"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_u0d7c"]
 properties/0/path = NodePath(".:position")
@@ -15,12 +16,14 @@ properties/0/replication_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i88t"]
 size = Vector2(124, 124)
 
-[node name="HighLevelNetworkPlayer" type="CharacterBody2D" unique_id=179867185]
+[node name="Player" type="CharacterBody2D" unique_id=179867185 node_paths=PackedStringArray("health")]
 script = ExtResource("1_jvuf2")
+health = NodePath("Health")
 
-[node name="Health" type="Node2D" parent="." unique_id=1268366516 node_paths=PackedStringArray("root_node")]
+[node name="Health" type="Node2D" parent="." unique_id=1268366516 node_paths=PackedStringArray("player", "sprite")]
 script = ExtResource("2_dd0ac")
-root_node = NodePath("..")
+player = NodePath("..")
+sprite = NodePath("../Visuals/Icon")
 
 [node name="Gun" type="Node2D" parent="." unique_id=1515005287 node_paths=PackedStringArray("autority_provider")]
 script = ExtResource("2_htcer")
@@ -44,8 +47,10 @@ text = "0"
 horizontal_alignment = 1
 script = ExtResource("3_mtuoh")
 
-[node name="Icon" type="Sprite2D" parent="Visuals" unique_id=1485132273]
+[node name="Icon" type="Sprite2D" parent="Visuals" unique_id=1485132273 node_paths=PackedStringArray("player")]
 texture = ExtResource("2_u6grq")
+script = ExtResource("7_0u5uq")
+player = NodePath("../..")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1435084464]
 

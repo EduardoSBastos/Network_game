@@ -5,7 +5,15 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-- Do not dele player upon death
+- Respawn Players
+  - After a certain time
+ 
+- Rework movement code
+  - Something more stable.
+  - Add gravity.
+  - Add floor.
+  - Add jumping.
+  - Shoot left and right.
 
 	
 ## Change log
@@ -27,8 +35,9 @@ Players were not spawning in the correct positions because of the SpawnPath prop
 
 Using the same method of adding a score to each player, with server authoritative RPC calls, the players can now shoot a bullet.
 
-### 27/07/2023:
+### 27/07/2023: Player Health and Death
 
 I have made players loose HP when getting hit by a bullet.
 - Spawned a bullet, when it enters an Area2D, check if it iis not the owner, if it is a player, and get the Health Node.
 - When the hit is confirmed, the Server executes an RPC on the hit player's Health, reducing their health.
+- Upon death, stop player processes and hide visuals.
