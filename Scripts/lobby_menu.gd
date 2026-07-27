@@ -11,7 +11,7 @@ func _ready() -> void:
 		start_button.disabled = true
 	
 
-func update_info(player_id, player_info)->void:
+func update_info(_player_id, _player_info)->void:
 	var player_list = Lobby.players
 	clear_players()
 	for id in player_list.keys():

@@ -5,8 +5,9 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-- Make other players loose HP when getting hit by a bullet.
+- Do not dele player upon death
 
+	
 ## Change log
 
 ### 22/07/2026: Created the project and added basic Lobby funcionality.
@@ -25,3 +26,9 @@ Players were not spawning in the correct positions because of the SpawnPath prop
 ### 24/07/2023: Players spawn bullets trough RPC
 
 Using the same method of adding a score to each player, with server authoritative RPC calls, the players can now shoot a bullet.
+
+### 27/07/2023:
+
+I have made players loose HP when getting hit by a bullet.
+- Spawned a bullet, when it enters an Area2D, check if it iis not the owner, if it is a player, and get the Health Node.
+- When the hit is confirmed, the Server executes an RPC on the hit player's Health, reducing their health.

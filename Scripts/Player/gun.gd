@@ -1,12 +1,10 @@
 extends Node2D
 
-var click_count:int
-
 const BULLET_SCENE = preload("res://Scenes/Player/bullet.tscn")
 
-signal on_score_change(new_value:int)
-
 @export var autority_provider:Node
+
+var click_count:int
 
 func _enter_tree():
 	set_multiplayer_authority(autority_provider.get_multiplayer_authority())
@@ -29,5 +27,7 @@ func register_trigger():
 @rpc("any_peer", "call_local", "reliable")
 func _spawn_bullet():
 	var bullet_instance:Node2D = BULLET_SCENE.instantiate()
-	bullet_instance.global_position = position
-	add_child(bullet_instance)
+	var shooter_name = get_parent().name
+	bullet_instance.initialize(shooter_name)
+	get_tree().current_scene.add_child(bullet_instance)
+	bullet_instance.global_position = global_position
