@@ -7,6 +7,8 @@ extends Node2D
 
 var current_health: int
 
+signal health_changed(current_health:int, max_health:int)
+
 func _ready():
 	current_health = max_health
 
@@ -14,5 +16,7 @@ func _ready():
 func receive_damage(damage:int) -> void:
 	current_health -= damage
 	print("current health:", str(current_health))
-	if current_health <= 0:
+	if current_health < 0: current_health = 0
+	health_changed.emit(current_health, max_health)
+	if current_health == 0:
 		player.die.rpc()

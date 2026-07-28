@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://dc0u6mvh08b12"]
 
 [ext_resource type="Script" uid="uid://jonlmibtcwnp" path="res://Scripts/Player/player.gd" id="1_jvuf2"]
-[ext_resource type="Script" uid="uid://dkucoa6mwwgv" path="res://Scripts/Player/score_counter.gd" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://rbomkbs6vfgk" path="res://Scripts/Player/health.gd" id="2_dd0ac"]
 [ext_resource type="Script" uid="uid://e1b8srsdtu0" path="res://Scripts/Player/gun.gd" id="2_htcer"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_u6grq"]
-[ext_resource type="Script" uid="uid://dvqn0wmp6yp43" path="res://Scripts/Player/score_label.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://cxr66fl0nwtj4" path="res://Scripts/Player/icon.gd" id="7_0u5uq"]
+[ext_resource type="Script" uid="uid://cidsyy05gmgbu" path="res://Scripts/Player/health_bar.gd" id="8_jlvik"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_u0d7c"]
 properties/0/path = NodePath(".:position")
@@ -29,32 +28,28 @@ sprite = NodePath("../Visuals/Icon")
 script = ExtResource("2_htcer")
 autority_provider = NodePath("..")
 
-[node name="ScoreCounter" type="Node2D" parent="." unique_id=783920538 node_paths=PackedStringArray("autority_provider")]
-script = ExtResource("2_6t5aa")
-autority_provider = NodePath("..")
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=361173749]
 replication_config = SubResource("SceneReplicationConfig_u0d7c")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=979349938]
-
-[node name="ScoreLabel" type="Label" parent="Visuals" unique_id=471139304]
-offset_left = -30.0
-offset_top = -90.0
-offset_right = 31.0
-offset_bottom = -64.0
-text = "0"
-horizontal_alignment = 1
-script = ExtResource("3_mtuoh")
 
 [node name="Icon" type="Sprite2D" parent="Visuals" unique_id=1485132273 node_paths=PackedStringArray("player")]
 texture = ExtResource("2_u6grq")
 script = ExtResource("7_0u5uq")
 player = NodePath("../..")
 
+[node name="HealthBar" type="ProgressBar" parent="Visuals" unique_id=1924302853 node_paths=PackedStringArray("health", "player")]
+offset_left = -63.0
+offset_top = -73.0
+offset_right = 61.0
+offset_bottom = -65.0
+value = 100.0
+show_percentage = false
+script = ExtResource("8_jlvik")
+health = NodePath("../../Health")
+player = NodePath("../..")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1435084464]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1129566817]
 shape = SubResource("RectangleShape2D_0i88t")
-
-[connection signal="on_score_change" from="ScoreCounter" to="Visuals/ScoreLabel" method="update_label"]

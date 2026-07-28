@@ -5,6 +5,9 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
+
+
+
 - Respawn Players
   - After a certain time
  
@@ -15,7 +18,7 @@ In this document, I log accomplished developments, and future plans for this pro
   - Add jumping.
   - Shoot left and right.
 
-	
+
 ## Change log
 
 ### 22/07/2026: Created the project and added basic Lobby funcionality.
@@ -41,3 +44,11 @@ I have made players loose HP when getting hit by a bullet.
 - Spawned a bullet, when it enters an Area2D, check if it iis not the owner, if it is a player, and get the Health Node.
 - When the hit is confirmed, the Server executes an RPC on the hit player's Health, reducing their health.
 - Upon death, stop player processes and hide visuals.
+
+
+### 27/07/2023: Added Health Bar
+
+Health is handled server authoritative variable, meaning only the server updates health values, which get RPC brodcasted to the client UI, this is good practice.
+
+
+ 
