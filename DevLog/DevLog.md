@@ -50,5 +50,13 @@ I have made players loose HP when getting hit by a bullet.
 
 Health is handled server authoritative variable, meaning only the server updates health values, which get RPC brodcasted to the client UI, this is good practice.
 
+### 30/07/2023: Exploring internet connection options
 
- 
+Method| Port Forwarding|	Extra Server|	Reliability|
+|----|----|----|----|
+Manual port forwarding|	Yes|	No|	Excellent|
+UPnP|	Automatic|	No|	Good (depends on router)|
+NAT Punchthrough|	No|	Yes (rendezvous)|	Good (depends on NAT type)\
+Relay server|	No|	Yes|	Excellent|
+Steam Networking|	No|	Steam handles it|	Excellent|
+VPN (Tailscale, ZeroTier)|	No|	VPN service|	Excellent|
