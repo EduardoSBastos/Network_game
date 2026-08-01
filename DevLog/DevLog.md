@@ -60,3 +60,11 @@ NAT Punchthrough|	No|	Yes (rendezvous)|	Good (depends on NAT type)
 Relay server|	No|	Yes|	Excellent|
 Steam Networking|	No|	Steam handles it|	Excellent|
 VPN (Tailscale, ZeroTier)|	No|	VPN service|	Excellent|
+
+### 01/08/2023: Discover Photon
+
+It handles all networking, has godot integration, and is free for prototyping, up to 100 CCU!!
+Starting implementation of Photon Godot Fusion.
+
+ - Created App ID: ed7d383d-66f4-42ca-b0b6-fb67fa624f0d
+ - Restarted entire project to follow photon fusion tutorial
