@@ -56,7 +56,7 @@ Method| Port Forwarding|	Extra Server|	Reliability|
 |----|----|----|----|
 Manual port forwarding|	Yes|	No|	Excellent|
 UPnP|	Automatic|	No|	Good (depends on router)|
-NAT Punchthrough|	No|	Yes (rendezvous)|	Good (depends on NAT type)\
+NAT Punchthrough|	No|	Yes (rendezvous)|	Good (depends on NAT type)
 Relay server|	No|	Yes|	Excellent|
 Steam Networking|	No|	Steam handles it|	Excellent|
 VPN (Tailscale, ZeroTier)|	No|	VPN service|	Excellent|
