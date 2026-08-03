@@ -5,9 +5,21 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-- Finish fusion tutorial
+- Comming to terms with how a score variable can be replicated across players.
+  - Make a simple variable that changes with a game event, pick-up
+
+The key idea in Fusion is:
+Everything that affects the predicted game state should happen during the simulation step (process_input).
+If I execute it in anoter function, the state is changed OUTSIDE of the simultaion. Prediction and Rollback cannot occur.
+Everything that affects the simmulation, as game state variables, should happen inside "process_input()". 
+Outside, thinkgs that are only local can happen, like UI updates, souds, particle effects.
+
+
 
 - Move camera to player, FPS
+
+
+
 
 ## Change log
 
@@ -63,3 +75,8 @@ Starting implementation of Photon Godot Fusion.
 - Followed this [tutorial](https://doc.photonengine.com/fusion-godot/v3-client-server/getting-started/quick-start-guide) up to step 8.
 
 - To players can join the same room, and see each other mooving.
+
+### 02/08/2023: Replicating Score
+
+- Comming to terms with how a score variable can be replicated across players.
+	
