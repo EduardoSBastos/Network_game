@@ -5,19 +5,9 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
+- Finish fusion tutorial
 
-
-
-- Respawn Players
-  - After a certain time
- 
-- Rework movement code
-  - Something more stable.
-  - Add gravity.
-  - Add floor.
-  - Add jumping.
-  - Shoot left and right.
-
+- Move camera to player, FPS
 
 ## Change log
 
@@ -66,5 +56,10 @@ VPN (Tailscale, ZeroTier)|	No|	VPN service|	Excellent|
 It handles all networking, has godot integration, and is free for prototyping, up to 100 CCU!!
 Starting implementation of Photon Godot Fusion.
 
- - Created App ID: ed7d383d-66f4-42ca-b0b6-fb67fa624f0d
  - Restarted entire project to follow photon fusion tutorial
+ 
+### 02/08/2023: Photon tutorial
+
+- Followed this [tutorial](https://doc.photonengine.com/fusion-godot/v3-client-server/getting-started/quick-start-guide) up to step 8.
+
+- To players can join the same room, and see each other mooving.

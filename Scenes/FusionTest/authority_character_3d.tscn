@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b8nofj7ry7mau"]
+
+[ext_resource type="Script" uid="uid://c6f43p43jb31d" path="res://Scenes/FusionTest/authority_character_3d.gd" id="1_egg6y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0i88t"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ckb4l"]
+
+[node name="Character" type="CharacterBody3D" unique_id=830205192]
+script = ExtResource("1_egg6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1695953444]
+shape = SubResource("CapsuleShape3D_0i88t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=593616503]
+mesh = SubResource("CapsuleMesh_ckb4l")
+
+[node name="FusionServerReplicator" type="FusionServerReplicator" parent="." unique_id=1489963131]
+owner_mode = 5
+root_replication_mode = 1
+process_priority = -2147483647
+process_physics_priority = -2147483647

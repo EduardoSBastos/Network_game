@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://civram65clfwa"]
+
+[ext_resource type="Script" uid="uid://bbs4ue8wes6g1" path="res://Scenes/FusionTest/fusion_main.gd" id="1_03d8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0i88t"]
+size = Vector3(6, 0.22460938, 6.1640625)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0i88t"]
+size = Vector3(5.9904785, 0.21386719, 5.961914)
+
+[node name="FusionMain" type="Node3D" unique_id=2049406191]
+script = ExtResource("1_03d8q")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=691686299]
+transform = Transform3D(1, 0, 0, 0, 0.70232916, 0.7118523, 0, -0.7118523, 0.70232916, 0.004995346, 4.3287106, 5.464673)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1547694794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0167413, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=919939002]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1208625735]
+shape = SubResource("BoxShape3D_0i88t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=7612014]
+mesh = SubResource("BoxMesh_0i88t")
+
+[node name="FusionSpawner" type="FusionSpawner" parent="." unique_id=433070825]
+spawn_path = NodePath("../Characters")
+
+[node name="Characters" type="Node3D" parent="." unique_id=92187138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8946421, 0)
