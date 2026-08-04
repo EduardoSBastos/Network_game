@@ -6,8 +6,12 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ckb4l"]
 
-[node name="Character" type="CharacterBody3D" unique_id=830205192]
+[sub_resource type="SphereShape3D" id="SphereShape3D_0i88t"]
+radius = 1.2701945
+
+[node name="Character" type="CharacterBody3D" unique_id=830205192 node_paths=PackedStringArray("pickup_area")]
 script = ExtResource("1_egg6y")
+pickup_area = NodePath("pickup_area3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1695953444]
 shape = SubResource("CapsuleShape3D_0i88t")
@@ -20,3 +24,8 @@ owner_mode = 5
 root_replication_mode = 1
 process_priority = -2147483647
 process_physics_priority = -2147483647
+
+[node name="pickup_area3D" type="Area3D" parent="." unique_id=1294475496]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pickup_area3D" unique_id=760838826]
+shape = SubResource("SphereShape3D_0i88t")

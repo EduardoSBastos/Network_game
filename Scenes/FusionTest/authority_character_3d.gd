@@ -3,10 +3,10 @@ extends CharacterBody3D
 const SPEED := 5.0
 const GRAVITY := -20.0
 
+@export var pickup_area:Area3D
+
 @onready var replicator: FusionServerReplicator = $FusionServerReplicator
 var _tick: int = 0
-var collected_coin:bool = false
-var score:int = 0
 
 func _ready():
 	replicator.on_process_input.connect(process_input)
@@ -40,6 +40,7 @@ func simulate_movement(delta_time: float, payload: PackedByteArray):
 	move_and_slide()
 
 func simulate_pickups():
-	if collected_coin:
-		score += 1
-		collected_coin = false
+	for area in pickup_area.get_overlapping_areas():
+		print(area.name)
+		if area.is_in_group("pickup"):
+			area.collect(self)

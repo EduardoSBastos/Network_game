@@ -14,6 +14,12 @@ If I execute it in anoter function, the state is changed OUTSIDE of the simultai
 Everything that affects the simmulation, as game state variables, should happen inside "process_input()". 
 Outside, thinkgs that are only local can happen, like UI updates, souds, particle effects.
 
+- I will check if a pickup was collected within the photon simmulation.
+	- Used a colision sphere from the player
+	> Check if interacted object is pickup
+
+
+
 
 
 - Move camera to player, FPS

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://civram65clfwa"]
 
 [ext_resource type="Script" uid="uid://bbs4ue8wes6g1" path="res://Scenes/FusionTest/fusion_main.gd" id="1_03d8q"]
+[ext_resource type="PackedScene" uid="uid://crg0jy4jx06dm" path="res://Scenes/FusionTest/Pickup/pickup.tscn" id="2_fbtu5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0i88t"]
 size = Vector3(6, 0.22460938, 6.1640625)
@@ -30,3 +31,6 @@ spawn_path = NodePath("../Characters")
 
 [node name="Characters" type="Node3D" parent="." unique_id=92187138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8946421, 0)
+
+[node name="Pickup" parent="." unique_id=1575580038 instance=ExtResource("2_fbtu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5361283, 0.6123049, -0.8292179)
