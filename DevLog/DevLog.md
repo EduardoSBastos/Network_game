@@ -16,7 +16,26 @@ Outside, thinkgs that are only local can happen, like UI updates, souds, particl
 
 - I will check if a pickup was collected within the photon simmulation.
 	- Used a colision sphere from the player
-	> Check if interacted object is pickup
+	- Check if interacted object is pickup
+	> Add score to the player.
+		- View score on top of head.
+		> Transform pickup call into RPC:
+		Client detects overlap
+			↓
+		Request server to collect pickup
+			↓
+		Server verifies overlap
+			↓
+		Server awards score
+			↓
+		Server despawns pickup
+			↓
+		Fusion replicates the changes
+		
+		!!! Set_input_authority might execute after _ready!!!
+		
+		
+> Organize scripts
 
 
 

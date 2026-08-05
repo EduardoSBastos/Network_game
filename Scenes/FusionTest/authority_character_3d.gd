@@ -1,15 +1,22 @@
 extends CharacterBody3D
+class_name Player
 
 const SPEED := 5.0
-const GRAVITY := -20.0
+const GRAVITY := -200.0
 
 @export var pickup_area:Area3D
+@export var score_label:Label3D
+@export var master_label:Label3D
 
 @onready var replicator: FusionServerReplicator = $FusionServerReplicator
 var _tick: int = 0
+var score: int = 0
 
 func _ready():
 	replicator.on_process_input.connect(process_input)
+	print(replicator.has_input_authority())
+	if replicator.has_input_authority():
+		master_label.text = str("Master" if Fusion.is_master_client() else "Client")
 
 func _create_input() -> PackedByteArray:
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -41,6 +48,13 @@ func simulate_movement(delta_time: float, payload: PackedByteArray):
 
 func simulate_pickups():
 	for area in pickup_area.get_overlapping_areas():
-		print(area.name)
-		if area.is_in_group("pickup"):
+		if area is Pickup:
 			area.collect(self)
+			
+func receive_score():
+	score += 1
+	score_label.text = str(score)
+			
+			
+			
+			
