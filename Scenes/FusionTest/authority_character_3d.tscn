@@ -6,6 +6,15 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ckb4l"]
 
+[sub_resource type="FusionReplicationConfig" id="FusionReplicationConfig_egg6y"]
+property_count = 1
+properties/0/path = NodePath(":score")
+properties/0/max_array_capacity = 0
+properties/0/interface_tag = ""
+properties/0/interpolate = 0
+properties/0/element_type = 0
+properties/0/element_class_name = ""
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_0i88t"]
 radius = 1.2701945
 
@@ -23,6 +32,7 @@ mesh = SubResource("CapsuleMesh_ckb4l")
 
 [node name="FusionServerReplicator" type="FusionServerReplicator" parent="." unique_id=1489963131]
 owner_mode = 5
+replication_config = SubResource("FusionReplicationConfig_egg6y")
 root_replication_mode = 1
 process_priority = -2147483647
 process_physics_priority = -2147483647

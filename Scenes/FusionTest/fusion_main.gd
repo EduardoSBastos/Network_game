@@ -2,7 +2,7 @@ extends Node3D
 
 const CharacterScene = preload("res://Scenes/FusionTest/authority_character_3d.tscn")
 
-@onready var spawner: FusionSpawner = $FusionSpawner
+@onready var spawner: FusionSpawner = $"FusionSpawner - Players"
 
 func _ready():
 	Fusion.room_joined.connect(_on_room_joined)

@@ -10,13 +10,20 @@ const GRAVITY := -200.0
 
 @onready var replicator: FusionServerReplicator = $FusionServerReplicator
 var _tick: int = 0
-var score: int = 0
+#var score: int = 0
+var score:int = 0:
+	set(value):
+		score = value
+		_on_score_changed()
+
 
 func _ready():
 	replicator.on_process_input.connect(process_input)
-	print(replicator.has_input_authority())
+	set_authority_label.call_deferred()
+
+func set_authority_label():
 	if replicator.has_input_authority():
-		master_label.text = str("Master" if Fusion.is_master_client() else "Client")
+		master_label.text = str("Host" if Fusion.is_master_client() else "Client")
 
 func _create_input() -> PackedByteArray:
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -53,8 +60,7 @@ func simulate_pickups():
 			
 func receive_score():
 	score += 1
+
+func _on_score_changed():
 	score_label.text = str(score)
-			
-			
-			
-			
+	

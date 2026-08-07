@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbs4ue8wes6g1" path="res://Scenes/FusionTest/fusion_main.gd" id="1_03d8q"]
 [ext_resource type="PackedScene" uid="uid://crg0jy4jx06dm" path="res://Scenes/FusionTest/Pickup/pickup.tscn" id="2_fbtu5"]
+[ext_resource type="Script" uid="uid://5cteh5q0ahww" path="res://Scenes/FusionTest/Pickup/pickups_spawner.gd" id="3_tjspf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0i88t"]
 size = Vector3(14.208008, 0.22460938, 14.651367)
@@ -16,7 +17,8 @@ script = ExtResource("1_03d8q")
 transform = Transform3D(1, 0, 0, 0, 0.70232916, 0.7118523, 0, -0.7118523, 0.70232916, 0.004995346, 4.3287106, 5.464673)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1547694794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0167413, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4217377, 0)
+light_energy = 12.42
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=919939002]
 
@@ -26,7 +28,7 @@ shape = SubResource("BoxShape3D_0i88t")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=7612014]
 mesh = SubResource("BoxMesh_0i88t")
 
-[node name="FusionSpawner" type="FusionSpawner" parent="." unique_id=433070825]
+[node name="FusionSpawner - Players" type="FusionSpawner" parent="." unique_id=433070825]
 spawn_path = NodePath("../Characters")
 
 [node name="Characters" type="Node3D" parent="." unique_id=92187138]
@@ -34,3 +36,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8946421, 0)
 
 [node name="Pickup" parent="." unique_id=1575580038 instance=ExtResource("2_fbtu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9379845, 0.6123049, -4.4607463)
+
+[node name="Pickups_spawn_point" type="Node3D" parent="." unique_id=9408854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.171314, 0.82565403, -3.7368221)
+script = ExtResource("3_tjspf")
+
+[node name="FusionSpawner - Pickups" type="FusionSpawner" parent="Pickups_spawn_point" unique_id=1912373405]
+spawnable_scenes = Array[PackedScene]([ExtResource("2_fbtu5")])

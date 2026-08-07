@@ -1,13 +1,20 @@
 extends Pickup
 
-@onready var replicator:FusionReplicator = $"../FusionServerReplicator"
+var collected := false
 
-func collect(collector: Node):
-	if collector is Player:
-		# request destruction fusion
-		Fusion.rpc(_get_collected(collector))
 
-@rpc("any_peer", "call_local")
-func _get_collected(collector: Node):
-	collector.receive_score()
-	#replicator.despawn(self)
+func collect(player: Player):
+	Fusion.rpc_to(Fusion.TARGET_MASTER, _request_collect, player)
+
+@rpc("any_peer")
+func _request_collect(player: Player):
+	if collected:
+		return
+	collected = true
+	player.receive_score()
+	Fusion.rpc(delete_me)
+
+@rpc("any_peer", "call_local", "reliable")
+func delete_me():
+	return
+	get_parent().queue_free()
