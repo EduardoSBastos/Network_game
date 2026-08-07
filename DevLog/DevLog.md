@@ -35,14 +35,16 @@ Outside, thinkgs that are only local can happen, like UI updates, souds, particl
 		!!! Set_input_authority might execute after _ready!!!
 		
 		
-> Organize scripts
+- Pickup is currently not a Fusion replicated object, so RPCs cannot be sent to clients. To solve this cleanly, pickup must be spawned with Fusion Spawner.
 
 
 
+> The pickup.gd script should be on pickup root
+	
 
 
 - Move camera to player, FPS
-
+> Organize scripts
 
 
 
@@ -105,11 +107,6 @@ Starting implementation of Photon Godot Fusion.
 
 - Comming to terms with how a score variable can be replicated across players.
 	
-### 06/08/2023: Replicating Pickups
+### 06/08/2023: Replicating Score Property
 
 - Replicated Score as Photon replicated variable. Transformed into property so that UI is automatically changed when score is updated.
-
-- Pickup is currently not a Fusion replicated object, so RPCs cannot be sent to clients. To solve this cleanly, pickup must be spawned with Fusion Spawner.
-
-> The pickup.gd script should be on pickup root
-	

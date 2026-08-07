@@ -16,3 +16,9 @@ shape = SubResource("SphereShape3D_0i88t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=628521267]
 mesh = SubResource("SphereMesh_0i88t")
+
+[node name="FusionServerReplicator" type="FusionServerReplicator" parent="." unique_id=598380012]
+owner_mode = 5
+root_replication_mode = 1
+process_priority = -2147483647
+process_physics_priority = -2147483647
