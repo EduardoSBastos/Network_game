@@ -8,6 +8,8 @@ func collect(player: Player):
 
 @rpc("any_peer")
 func _request_collect(player: Player):
+	if not Fusion.is_master_client():
+		return
 	if collected:
 		return
 	collected = true
@@ -16,5 +18,4 @@ func _request_collect(player: Player):
 
 @rpc("any_peer", "call_local", "reliable")
 func delete_me():
-	return
 	get_parent().queue_free()

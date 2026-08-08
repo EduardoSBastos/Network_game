@@ -38,3 +38,4 @@ simulation/mode=1
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
