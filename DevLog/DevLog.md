@@ -9,6 +9,7 @@ In this document, I log accomplished developments, and future plans for this pro
   - Export in HTML5 format.
   - Game runs, but it each instances creates it's own room.
   > Adapt Lobby so that both players can connect.
+    O can get active rooms with "Fusion.get_room_list()"
 
 > Comming to terms with how a score variable can be replicated across players.
   - Make a simple variable that changes with a game event, pick-up
