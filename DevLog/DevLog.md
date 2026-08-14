@@ -5,7 +5,12 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-- Comming to terms with how a score variable can be replicated across players.
+> Testing if I can play with friends on itch.io
+  - Export in HTML5 format.
+  - Game runs, but it each instances creates it's own room.
+  > Adapt Lobby so that both players can connect.
+
+> Comming to terms with how a score variable can be replicated across players.
   - Make a simple variable that changes with a game event, pick-up
 
 The key idea in Fusion is:
