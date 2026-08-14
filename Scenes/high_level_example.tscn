@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xskmhffi3dcf"]
 
-[ext_resource type="Script" uid="uid://cwynmgmcguevo" path="res://Scripts/multiplayer_spawer.gd" id="2_4likr"]
+[ext_resource type="Script" uid="uid://cwynmgmcguevo" path="res://OldScripts/multiplayer_spawer.gd" id="2_4likr"]
 [ext_resource type="PackedScene" uid="uid://dc0u6mvh08b12" path="res://Scenes/Player/player.tscn" id="3_4likr"]
 
 [node name="HighLevelExample" type="Node2D" unique_id=201747853]

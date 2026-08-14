@@ -13,7 +13,6 @@ func _ready():
 	Fusion.connect_to_photon.call_deferred("user_%d" % randi())
 	Fusion.connected_to_photon.connect(func():
 		var rooms: Array[FusionRoomListing] = Fusion.get_room_list()
-		
 		for room in rooms:
 			print("===============================================")
 			print(room.name)
@@ -25,7 +24,6 @@ func _ready():
 			"test_%d" % Time.get_unix_time_from_system(),
 			options
 			)
-		#Fusion.join_or_create_room("test")
 	)
 
 func _on_room_joined():
