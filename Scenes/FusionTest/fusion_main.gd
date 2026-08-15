@@ -12,11 +12,6 @@ func _ready():
 
 	Fusion.connect_to_photon.call_deferred("user_%d" % randi())
 	Fusion.connected_to_photon.connect(func():
-		var rooms: Array[FusionRoomListing] = Fusion.get_room_list()
-		for room in rooms:
-			print("===============================================")
-			print(room.name)
-			print(room.player_count)
 		var options := FusionRoomOptions.new()
 		options.max_players = 8
 		options.is_visible = true
