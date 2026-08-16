@@ -4,15 +4,19 @@ class_name PhotonLobby extends Node2D
 @export var join_button: Button
 @export var refresh_button: Button
 @export var host_button: Button
+@export var status_label:Label
+
 
 func _ready() -> void:
-	#Fusion.room_joined.connect(_on_room_joined)
 	join_button.pressed.connect(_on_join_button_pressed)
 	refresh_button.pressed.connect(update_rooms_list)
 	host_button.pressed.connect(_on_host_button_pressed)
 	Fusion.register_broadcast_receiver(self)  # enables this node to receive broadcast RPCs
 	Fusion.connect_to_photon.call_deferred("user_%d" % randi())
+	
 	Fusion.connected_to_photon.connect(update_rooms_list)
+	Fusion.room_joined.connect(_on_room_joined)
+	Fusion.connection_failed.connect(_on_connection_failed)
 	room_name_list.clear()
 
 
@@ -27,6 +31,7 @@ func _on_host_button_pressed():
 
 
 func update_rooms_list():
+	if not Fusion.is_connected_to_photon(): return
 	room_name_list.clear()
 	var rooms: Array[FusionRoomListing] = Fusion.get_room_list()
 	for room in rooms:
@@ -41,8 +46,17 @@ func _on_join_button_pressed() -> void:
 		print("Select only one room!")
 		return
 	var room_name = room_name_list.get_item_text(selected_items[0])
-	# TODO: Test if connection worked
-	# TODO: Change to game scene
 	Fusion.join_room(room_name)
+
+
+func _on_room_joined():
+	print("Successfully joined room!")
+	print("Player ID: ", Fusion.get_local_player_id())
+	status_label.text = "Successfully joined room! Player ID: %s" % Fusion.get_local_player_id()
+	# TODO: Add Sccess Screen !!
+	# Start your game / change scene / spawn player here
+
+func _on_connection_failed(error: String):
+	status_label.text = 'Connection Failed'
+	print("Failed to join room: ", error)
 	
-	#Lobby.load_game.rpc("res://Scenes/high_level_example.tscn")
