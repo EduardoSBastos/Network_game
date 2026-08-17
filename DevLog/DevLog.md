@@ -5,46 +5,11 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-- Comming to terms with how a score variable can be replicated across players.
-  - Make a simple variable that changes with a game event, pick-up
 
-The key idea in Fusion is:
-Everything that affects the predicted game state should happen during the simulation step (process_input).
-If I execute it in anoter function, the state is changed OUTSIDE of the simultaion. Prediction and Rollback cannot occur.
-Everything that affects the simmulation, as game state variables, should happen inside "process_input()". 
-Outside, thinkgs that are only local can happen, like UI updates, souds, particle effects.
+> Design the game:
+Thinking what kind of game I should build.
+The idea is to make a simple game that two players can jump in and play.
 
-- I will check if a pickup was collected within the photon simmulation.
-	- Used a colision sphere from the player
-	- Check if interacted object is pickup
-	> Add score to the player.
-		- View score on top of head.
-		> Transform pickup call into RPC:
-		Client detects overlap
-			↓
-		Request server to collect pickup
-			↓
-		Server verifies overlap
-			↓
-		Server awards score
-			↓
-		Server despawns pickup
-			↓
-		Fusion replicates the changes
-		
-		!!! Set_input_authority might execute after _ready!!!
-		
-		
-
-
-
-
-> The pickup.gd script should be on pickup root
-	
-
-
-- Move camera to player, FPS
-> Organize scripts
 
 
 
@@ -101,12 +66,12 @@ Starting implementation of Photon Godot Fusion.
 
 - Followed this [tutorial](https://doc.photonengine.com/fusion-godot/v3-client-server/getting-started/quick-start-guide) up to step 8.
 
-- To players can join the same room, and see each other mooving.
+- To players can join the same room, and see each other moving.
 
 ### 02/08/2023: Replicating Score
 
-- Comming to terms with how a score variable can be replicated across players.
-	
+- Coming to terms with how a score variable can be replicated across players.
+
 ### 06/08/2023: Replicating Score Property
 
 - Replicated Score as Photon replicated variable. Transformed into property so that UI is automatically changed when score is updated.
@@ -114,3 +79,14 @@ Starting implementation of Photon Godot Fusion.
 ### 07/08/2023:
 
 - Pickup is now a Fusion replicated object, so RPCs can be sent to clients. Pickup was spawned with Fusion Spawner.
+
+### 16/08/2023:
+
+Itch.io lobby connection successful!!
+
+Created a lobby that allows for players to create rooms, see created rooms, and join them.
+Structure of this lobby was based on the client-server example from the Photon Fusion Godot documentation.
+
+Now onto creating an actual game that run online.
+
+

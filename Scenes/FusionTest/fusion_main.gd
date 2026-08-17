@@ -5,13 +5,20 @@ const CharacterScene = preload("res://Scenes/FusionTest/authority_character_3d.t
 @onready var spawner: FusionSpawner = $"FusionSpawner - Players"
 
 func _ready():
+	
 	Fusion.room_joined.connect(_on_room_joined)
 	Fusion.register_broadcast_receiver(self)  # enables this node to receive broadcast RPCs
 	spawner.add_spawnable_scene(CharacterScene)
 
 	Fusion.connect_to_photon.call_deferred("user_%d" % randi())
 	Fusion.connected_to_photon.connect(func():
-		Fusion.join_or_create_room("test_%d" % Time.get_unix_time_from_system())
+		var options := FusionRoomOptions.new()
+		options.max_players = 8
+		options.is_visible = true
+		Fusion.join_or_create_room(
+			"test_%d" % Time.get_unix_time_from_system(),
+			options
+			)
 	)
 
 func _on_room_joined():

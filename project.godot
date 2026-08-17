@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="Network Game"
-run/main_scene="uid://civram65clfwa"
+run/main_scene="uid://dtf5j85y0jj5p"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Lobby="*uid://cree7wu2lcfmf"
 
 [display]
 
@@ -30,6 +26,7 @@ window/stretch/aspect="expand"
 
 connection/app_id="ed7d383d-66f4-42ca-b0b6-fb67fa624f0d"
 simulation/mode=1
+debug/log_level=2
 
 [physics]
 
