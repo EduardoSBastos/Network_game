@@ -4,67 +4,98 @@
 
 [node name="PhotonLobby" type="Node2D" unique_id=941850661 node_paths=PackedStringArray("room_name_list", "join_button", "refresh_button", "host_button", "status_label")]
 script = ExtResource("1_fjmb6")
-room_name_list = NodePath("VBoxContainer/ItemList")
-join_button = NodePath("JoinButton")
-refresh_button = NodePath("RefreshButton")
-host_button = NodePath("HostButton")
-status_label = NodePath("Panel/status_label")
+room_name_list = NodePath("LobbyPanel/VBoxContainer/ItemList")
+join_button = NodePath("LobbyPanel/JoinButton")
+refresh_button = NodePath("LobbyPanel/RefreshButton")
+host_button = NodePath("LobbyPanel/HostButton")
+status_label = NodePath("LobbyPanel/Panel/status_label")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1118215373]
+[node name="LobbyPanel" type="Panel" parent="." unique_id=1513227603]
+offset_right = 602.0
+offset_bottom = 358.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyPanel" unique_id=1118215373]
+layout_mode = 0
 offset_right = 603.0
 offset_bottom = 178.0
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=2036768911]
+[node name="RoomsLabel" type="Label" parent="LobbyPanel/VBoxContainer" unique_id=2036768911]
 layout_mode = 2
-text = "Players:"
+text = "Rooms:"
 horizontal_alignment = 1
 
-[node name="RoomNameContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=2125971841]
+[node name="RoomNameContainer" type="VBoxContainer" parent="LobbyPanel/VBoxContainer" unique_id=2125971841]
 layout_mode = 2
 
-[node name="ItemList" type="ItemList" parent="VBoxContainer" unique_id=2110914165]
+[node name="ItemList" type="ItemList" parent="LobbyPanel/VBoxContainer" unique_id=2110914165]
 layout_mode = 2
 auto_height = true
 item_count = 2
 item_0/text = "sdad"
 item_1/text = "fffff"
 
-[node name="JoinButton" type="Button" parent="." unique_id=848559370]
+[node name="JoinButton" type="Button" parent="LobbyPanel" unique_id=848559370]
+layout_mode = 0
 offset_top = 316.0
 offset_right = 157.0
 offset_bottom = 358.0
 text = "Join
 "
 
-[node name="HostButton" type="Button" parent="." unique_id=1847788540]
+[node name="HostButton" type="Button" parent="LobbyPanel" unique_id=1847788540]
+layout_mode = 0
 offset_left = 439.0
 offset_top = 313.0
 offset_right = 596.0
 offset_bottom = 355.0
 text = "Host"
 
-[node name="RefreshButton" type="Button" parent="." unique_id=13454618]
+[node name="RefreshButton" type="Button" parent="LobbyPanel" unique_id=13454618]
+layout_mode = 0
 offset_left = 218.0
 offset_top = 316.0
 offset_right = 375.0
 offset_bottom = 358.0
 text = "Refresh"
 
-[node name="Panel" type="Panel" parent="." unique_id=1657913311]
+[node name="Panel" type="Panel" parent="LobbyPanel" unique_id=1657913311]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 240.0
 offset_right = 325.0
 offset_bottom = 311.0
 
-[node name="Label" type="Label" parent="Panel" unique_id=2084340407]
+[node name="Label" type="Label" parent="LobbyPanel/Panel" unique_id=2084340407]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Connection Status:"
 
-[node name="status_label" type="Label" parent="Panel" unique_id=664993815]
+[node name="status_label" type="Label" parent="LobbyPanel/Panel" unique_id=664993815]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 23.0
 offset_right = 318.0
 offset_bottom = 71.0
+
+[node name="HostPanel" type="Panel" parent="." unique_id=1395121254]
+offset_left = 149.0
+offset_top = 48.0
+offset_right = 463.0
+offset_bottom = 272.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HostPanel" unique_id=719321637]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.60200006
+anchor_bottom = 0.74100006
+offset_right = -0.028015137
+offset_bottom = 0.015991211
+
+[node name="Label" type="Label" parent="HostPanel/VBoxContainer" unique_id=961527950]
+layout_mode = 2
+text = "Room Name:"
+
+[node name="RoomName_TextEdit" type="TextEdit" parent="HostPanel/VBoxContainer" unique_id=639411267]
+layout_mode = 2

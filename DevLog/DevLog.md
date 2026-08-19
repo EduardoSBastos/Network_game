@@ -5,6 +5,11 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
+> Finish lobby
+  > Host room screen.
+  
+  > Room screen
+
 
 > Design the game:
 Thinking what kind of game I should build.
