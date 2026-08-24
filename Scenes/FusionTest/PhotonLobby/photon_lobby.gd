@@ -79,32 +79,36 @@ func _on_join_button_pressed() -> void:
 		print("Select only one room!")
 		return
 	var room_name = room_name_list.get_item_text(selected_items[0])
+	var options = FusionRoomOptions.new()
 	Fusion.join_room(room_name)
 
 
 func _on_player_joined(player_id: int, user_id: String):
+	if not Fusion.is_master_client(): return
 	players[player_id] = {
 		"user_id": user_id
 	}
-
 	print("Player joined: ", player_id, " user: ", user_id)
-	update_player_list()
+	Fusion.rpc(update_player_list, players)
 
 
 func _on_player_left(player_id: int, is_inactive: bool):
+	if not Fusion.is_master_client(): return
 	if not is_inactive:
 		players.erase(player_id)
-	update_player_list()
+	Fusion.rpc(update_player_list, players)
 
-
-func update_player_list():
-	for player_id in players:
-		print(player_id, ": ", players[player_id].user_id)	
+@rpc("call_local", "reliable", "any_peer")
+func update_player_list(current_players:Dictionary):
+	print("======> Local Player ID: ", Fusion.get_local_player_id())
+	print(current_players)
+	for player_id in current_players:
+		print(player_id, ": ", current_players[player_id].user_id)	
 
 
 func _on_room_joined():
-	print("Successfully joined room!")
-	print("Player ID: ", Fusion.get_local_player_id())
+	#print("Successfully joined room!")
+	#print("Player ID: ", Fusion.get_local_player_id())
 	status_label.text = "Successfully joined room! Player ID: %s" % Fusion.get_local_player_id()
 	# TODO: Add Sccess Screen !!
 	# Start your game / change scene / spawn player here

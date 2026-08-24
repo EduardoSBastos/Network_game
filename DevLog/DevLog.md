@@ -6,9 +6,9 @@ In this document, I log accomplished developments, and future plans for this pro
 ## Next Steps
 
 > Finish lobby
-  > Host room screen.
-  
+
   > Room screen
+    - Joining Player cannot set their own name.
 
 
 > Design the game:
@@ -95,3 +95,6 @@ Structure of this lobby was based on the client-server example from the Photon F
 Now onto creating an actual game that run online.
 
 
+### 23/08/2023:
+
+Continuing the development of the Lobby. Players can connect to the same setion, but cannot see each other. Implementing a list of players in the room.
