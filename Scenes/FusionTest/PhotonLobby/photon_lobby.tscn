@@ -1,21 +1,23 @@
 [gd_scene format=3 uid="uid://dtf5j85y0jj5p"]
 
 [ext_resource type="Script" uid="uid://dsd1u0fxvj8nm" path="res://Scenes/FusionTest/PhotonLobby/photon_lobby.gd" id="1_fjmb6"]
-[ext_resource type="Script" uid="uid://d4hrh6te0gns3" path="res://Scenes/FusionTest/PhotonLobby/room_logic.gd" id="2_l8s2y"]
 
-[node name="PhotonLobby" type="Node2D" unique_id=941850661 node_paths=PackedStringArray("room_name_list", "join_button", "refresh_button", "host_button", "host_cancel_button", "create_room_button", "room_name_textedit", "status_label", "lobby_panel", "host_panel", "room_panel")]
+[node name="PhotonLobby" type="Node2D" unique_id=941850661 node_paths=PackedStringArray("refresh_button", "lobby_panel", "status_label", "room_name_list", "join_button", "host_panel", "room_name_textedit", "host_button", "host_cancel_button", "create_room_button", "room_panel", "players_itemlist", "start_game_button", "cancel_room_button")]
 script = ExtResource("1_fjmb6")
+refresh_button = NodePath("LobbyPanel/RefreshButton")
+lobby_panel = NodePath("LobbyPanel")
+status_label = NodePath("LobbyPanel/ConectionStatus_Panel/status_label")
 room_name_list = NodePath("LobbyPanel/VBoxContainer/ItemList")
 join_button = NodePath("LobbyPanel/JoinButton")
-refresh_button = NodePath("LobbyPanel/RefreshButton")
+host_panel = NodePath("HostPanel")
+room_name_textedit = NodePath("HostPanel/VBoxContainer/RoomName_TextEdit")
 host_button = NodePath("LobbyPanel/HostButton")
 host_cancel_button = NodePath("HostPanel/Cancel_Button")
 create_room_button = NodePath("HostPanel/Create_Button")
-room_name_textedit = NodePath("HostPanel/VBoxContainer/RoomName_TextEdit")
-status_label = NodePath("LobbyPanel/ConectionStatus_Panel/status_label")
-lobby_panel = NodePath("LobbyPanel")
-host_panel = NodePath("HostPanel")
 room_panel = NodePath("RoomPanel")
+players_itemlist = NodePath("RoomPanel/VBoxContainer/Players_ItemList")
+start_game_button = NodePath("RoomPanel/StartGame_Button")
+cancel_room_button = NodePath("RoomPanel/Cancel_Button")
 
 [node name="LobbyPanel" type="Panel" parent="." unique_id=1513227603]
 visible = false
@@ -154,7 +156,21 @@ layout_mode = 2
 text = "Players:"
 
 [node name="Players_ItemList" type="ItemList" parent="RoomPanel/VBoxContainer" unique_id=1873292901]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="RoomLogic" type="Node2D" parent="." unique_id=321904645]
-script = ExtResource("2_l8s2y")
+[node name="StartGame_Button" type="Button" parent="RoomPanel" unique_id=1407948237]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 299.0
+offset_right = 121.0
+offset_bottom = 342.0
+text = "Start Game"
+
+[node name="Cancel_Button" type="Button" parent="RoomPanel" unique_id=410218817]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 299.0
+offset_right = 572.0
+offset_bottom = 342.0
+text = "Cancel"

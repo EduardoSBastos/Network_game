@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8nofj7ry7mau"]
 
-[ext_resource type="Script" uid="uid://c6f43p43jb31d" path="res://Scenes/FusionTest/authority_character_3d.gd" id="1_egg6y"]
+[ext_resource type="Script" uid="uid://c6f43p43jb31d" path="res://Scenes/FusionTest/Legacy/authority_character_3d.gd" id="1_egg6y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0i88t"]
 

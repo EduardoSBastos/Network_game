@@ -5,15 +5,9 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-> Finish lobby
-
-  > Room screen
-    - Joining Player cannot set their own name.
-
-
 > Design the game:
 Thinking what kind of game I should build.
-The idea is to make a simple game that two players can jump in and play.
+The idea is to make a simple game that two players can jump in and play. It Should be a 2D game, where players can move a character and shoot each other.
 
 
 
@@ -98,3 +92,11 @@ Now onto creating an actual game that run online.
 ### 23/08/2023:
 
 Continuing the development of the Lobby. Players can connect to the same setion, but cannot see each other. Implementing a list of players in the room.
+
+### 24/08/2023:
+
+Finished a functional lobby! Players can now see each other in the room. Only ther ID is known. They cannot share a name yet.
+
+Now onto designing the game itself, finally!!
+
+I have opted to design a simple 2D game, with an arena and one character for reach player. The characters can shoot, and die in one shot, then revive. The player with most kills at the end of the game, win.

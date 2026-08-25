@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cux7sgmcrrhsd"]
+
+[ext_resource type="Script" uid="uid://c8ib8a6w3wutf" path="res://Scenes/FusionTest/Main/main_scene.gd" id="1_4m8e4"]
+[ext_resource type="PackedScene" uid="uid://dtf5j85y0jj5p" path="res://Scenes/FusionTest/PhotonLobby/photon_lobby.tscn" id="1_j2rpj"]
+
+[node name="MainScene" type="Node2D" unique_id=112662151 node_paths=PackedStringArray("photon_lobby")]
+script = ExtResource("1_4m8e4")
+photon_lobby = NodePath("PhotonLobby")
+
+[node name="PhotonLobby" parent="." unique_id=941850661 instance=ExtResource("1_j2rpj")]
