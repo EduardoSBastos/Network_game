@@ -5,9 +5,9 @@ In this document, I log accomplished developments, and future plans for this pro
 
 ## Next Steps
 
-> Design the game:
-Thinking what kind of game I should build.
-The idea is to make a simple game that two players can jump in and play. It Should be a 2D game, where players can move a character and shoot each other.
+ - Player Movement:
+ 
+ Implement player movement code for 2D characters.
 
 
 
@@ -100,3 +100,10 @@ Finished a functional lobby! Players can now see each other in the room. Only th
 Now onto designing the game itself, finally!!
 
 I have opted to design a simple 2D game, with an arena and one character for reach player. The characters can shoot, and die in one shot, then revive. The player with most kills at the end of the game, win.
+
+### 25/08/2023:
+
+Booted both players into the same gameplay room, and spawned characters for each player. 
+
+The trick to avoid errors was to wait untill all players had loaded the game scene before spawning.
+

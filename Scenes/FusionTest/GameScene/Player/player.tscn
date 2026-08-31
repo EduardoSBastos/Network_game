@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dw36jg7i185k"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_cs1dw"]
+[ext_resource type="Script" uid="uid://s3qvurija0jt" path="res://Scenes/FusionTest/GameScene/Player/player.gd" id="1_t75b8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i88t"]
+size = Vector2(126, 126)
+
+[node name="Player" type="CharacterBody2D" unique_id=1920116268]
+script = ExtResource("1_t75b8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1676932906]
+shape = SubResource("RectangleShape2D_0i88t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268744768]
+texture = ExtResource("1_cs1dw")
+
+[node name="FusionServerReplicator" type="FusionServerReplicator" parent="." unique_id=94705804]
+owner_mode = 5
+root_path = NodePath("")
+root_replication_mode = 1
+process_priority = -2147483647
+process_physics_priority = -2147483647

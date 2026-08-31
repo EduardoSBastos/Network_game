@@ -37,8 +37,6 @@ func _ready() -> void:
 	Fusion.connect_to_photon.call_deferred("user_%d" % randi())
 	
 	Fusion.connected_to_photon.connect(update_rooms_list)
-	Fusion.room_joined.connect(_on_room_joined)
-	Fusion.room_left.connect(_on_room_left)
 	Fusion.player_joined.connect(_on_player_joined)
 	Fusion.player_left.connect(_on_player_left)
 	Fusion.connection_failed.connect(_on_connection_failed)
@@ -77,7 +75,6 @@ func _on_create_room_button_pressed():
 func update_rooms_list():
 	if not Fusion.is_connected_to_photon(): 
 		return
-	print("Connected.")
 	room_name_list.clear()
 	var rooms: Array[FusionRoomListing] = Fusion.get_room_list()
 	for room in rooms:
@@ -125,7 +122,6 @@ func _on_player_joined(player_id: int, user_id: String):
 	players[player_id] = {
 		"user_id": user_id
 	}
-	print("Player joined: ", player_id, " user: ", user_id)
 	Fusion.rpc(update_player_list, players)
 
 
@@ -143,17 +139,8 @@ func update_player_list(current_players:Dictionary):
 		players_itemlist.add_item("player {0}".format([player_id]))
 
 
-func _on_room_joined():
-	#print("Successfully joined room!")
-	#print("Player ID: ", Fusion.get_local_player_id())
-	status_label.text = "Successfully joined room! Player ID: %s" % Fusion.get_local_player_id()
-	# TODO: Add Sccess Screen !!
-	# Start your game / change scene / spawn player here
-
-
-func _on_room_left():
-	pass
-
+# func _on_room_joined():
+# func _on_room_left():
 
 func _on_connection_failed(error: String):
 	status_label.text = 'Connection Failed'
