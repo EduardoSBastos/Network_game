@@ -100,6 +100,7 @@ func _on_join_button_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	if not Fusion.is_master_client(): return
+	GameManager.instance.update_connected_players()
 	Fusion.rpc(_change_scene)
 
 @rpc("call_local", "reliable", "any_peer")

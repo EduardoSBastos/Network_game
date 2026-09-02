@@ -8,9 +8,7 @@ In this document, I log accomplished developments, and future plans for this pro
  - Player Movement:
  
  Implement player movement code for 2D characters.
-
-
-
+ 
 
 ## Change log
 
@@ -107,3 +105,8 @@ Booted both players into the same gameplay room, and spawned characters for each
 
 The trick to avoid errors was to wait untill all players had loaded the game scene before spawning.
 
+### 01/09/2023:
+
+Fixed authority distribution by setting the root node on the FusionServerReplicator of the Player scene.
+
+ Define each Player spawn positions.

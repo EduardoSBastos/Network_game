@@ -2,11 +2,36 @@
 
 [ext_resource type="Script" uid="uid://b4ydddnp7tweg" path="res://Scenes/FusionTest/GameScene/game_scene.gd" id="1_5uaue"]
 
-[node name="GameScene" type="Node2D" unique_id=613442881 node_paths=PackedStringArray("spawner")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i88t"]
+size = Vector2(597, 32)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0i88t"]
+
+[node name="GameScene" type="Node2D" unique_id=613442881 node_paths=PackedStringArray("spawner", "spawn_points")]
 script = ExtResource("1_5uaue")
 spawner = NodePath("FusionSpawner")
+spawn_points = [NodePath("SpawnPositions/SpawnPoint_1"), NodePath("SpawnPositions/SpawnPoint_2")]
 
 [node name="FusionSpawner" type="FusionSpawner" parent="." unique_id=1244167974]
 spawn_path = NodePath("../Characters")
 
 [node name="Characters" type="Node2D" parent="." unique_id=1747533804]
+
+[node name="SpawnPositions" type="Node2D" parent="." unique_id=648041132]
+
+[node name="SpawnPoint_1" type="Node2D" parent="SpawnPositions" unique_id=570065965]
+position = Vector2(130, 140)
+
+[node name="SpawnPoint_2" type="Node2D" parent="SpawnPositions" unique_id=894180547]
+position = Vector2(440, 140)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=381360809]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=356476662]
+position = Vector2(299.5, 342)
+shape = SubResource("RectangleShape2D_0i88t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=354776998]
+position = Vector2(300.5, 342.49997)
+scale = Vector2(-598, 33.999992)
+texture = SubResource("PlaceholderTexture2D_0i88t")

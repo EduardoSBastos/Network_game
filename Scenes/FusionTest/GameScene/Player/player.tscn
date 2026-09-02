@@ -17,7 +17,6 @@ texture = ExtResource("1_cs1dw")
 
 [node name="FusionServerReplicator" type="FusionServerReplicator" parent="." unique_id=94705804]
 owner_mode = 5
-root_path = NodePath("")
 root_replication_mode = 1
 process_priority = -2147483647
 process_physics_priority = -2147483647
