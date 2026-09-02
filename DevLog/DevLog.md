@@ -109,4 +109,6 @@ The trick to avoid errors was to wait untill all players had loaded the game sce
 
 Fixed authority distribution by setting the root node on the FusionServerReplicator of the Player scene.
 
- Define each Player spawn positions.
+Defined each Player spawn positions.
+
+Fixed movement.
