@@ -4,7 +4,9 @@ const SPEED := 20.0
 const GRAVITY := 20.0
 
 @onready var replicator: FusionServerReplicator = $FusionServerReplicator
-var _tick: int = 0
+
+var _tick:int = 0
+var z_velocity:float = 0
 
 func _ready():
 	replicator.on_process_input.connect(process_input)
@@ -27,9 +29,23 @@ func _physics_process(delta):
 # is_new is true the first time this input runs. It is false during re-simulation
 # after a prediction reset. Guard one-shot effects (sounds, particles) behind is_new.
 func process_input(tick: int, delta_time: float, payload: PackedByteArray, is_new: bool):
-	var dir_x = payload.decode_float(0)
-	var dir_z = payload.decode_float(4)
-	print(dir_x, dir_z)
-	velocity = Vector2(dir_x, dir_z) * SPEED / delta_time
-	velocity.y += GRAVITY / delta_time
+	var pad_x = payload.decode_float(0)
+	var pad_z = payload.decode_float(4)
+	print(pad_x, pad_z)
+	var x_dir = 0
+	if pad_x > 0:
+		x_dir = 1
+	elif pad_x < 0:
+		x_dir = -1
+	
+	z_velocity += GRAVITY
+	if is_on_floor():
+		if pad_z > 0:
+			z_velocity = 200
+		else:
+			z_velocity = 0
+	
+	var x_velocity = x_dir * SPEED
+	velocity = Vector2(x_velocity, z_velocity) / delta_time
+	#velocity.y += GRAVITY / delta_time
 	move_and_slide()

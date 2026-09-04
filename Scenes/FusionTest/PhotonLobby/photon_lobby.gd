@@ -34,8 +34,8 @@ func _ready() -> void:
 	cancel_room_button.pressed.connect(_on_room_cancel_button_pressed)
 	
 	Fusion.register_broadcast_receiver(self)  # enables this node to receive broadcast RPCs
-	Fusion.connect_to_photon.call_deferred("user_%d" % randi())
-	
+	Fusion.connect_to_photon.call_deferred("user_%d" % randi(), "sa")
+	Fusion.connected_to_photon.connect(_on_connected_to_photon)
 	Fusion.connected_to_photon.connect(update_rooms_list)
 	Fusion.player_joined.connect(_on_player_joined)
 	Fusion.player_left.connect(_on_player_left)
@@ -70,6 +70,11 @@ func _on_create_room_button_pressed():
 	)
 	host_panel.hide()
 	room_panel.show()
+
+
+func _on_connected_to_photon():
+	print("==== Connected to Photon ====")
+	status_label.text = 'Connection Successful'
 
 
 func update_rooms_list():
