@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED := 20.0
-const GRAVITY := 20.0
+const GRAVITY := 80.0
 
 @onready var replicator: FusionServerReplicator = $FusionServerReplicator
 
@@ -31,21 +31,24 @@ func _physics_process(delta):
 func process_input(tick: int, delta_time: float, payload: PackedByteArray, is_new: bool):
 	var pad_x = payload.decode_float(0)
 	var pad_z = payload.decode_float(4)
-	print(pad_x, pad_z)
+	
 	var x_dir = 0
 	if pad_x > 0:
 		x_dir = 1
 	elif pad_x < 0:
 		x_dir = -1
 	
-	z_velocity += GRAVITY
+	z_velocity += GRAVITY * delta_time
 	if is_on_floor():
-		if pad_z > 0:
-			z_velocity = 200
+		if pad_z < 0:
+			z_velocity = - 20
+			print("up")
 		else:
 			z_velocity = 0
+			
+	print(z_velocity)
 	
 	var x_velocity = x_dir * SPEED
 	velocity = Vector2(x_velocity, z_velocity) / delta_time
-	#velocity.y += GRAVITY / delta_time
+	
 	move_and_slide()
